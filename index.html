@@ -142,14 +142,14 @@
           <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-royal card-body overflow-hidden text-center wow zoomInUp animation-delay-2">
-                <h2 class="counter">17362821</h2>
+                <h2 class="counter" id="files-served">17362821</h2>
                 <i class="fa fa-4x fa-download color-royal"></i>
                 <p class="mt-2 no-mb lead small-caps">files served</p>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-warning card-body overflow-hidden text-center wow zoomInUp animation-delay-5">
-                <h2 class="counter">20192</h2>
+                <h2 class="counter">10192</h2>
                 <span class="score">
                   <div class="score-wrap">
                       <span >
@@ -166,14 +166,14 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-danger card-body overflow-hidden text-center wow zoomInUp animation-delay-4">
-                <h2 class="counter">632</h2>
+                <h2 class="counter">132</h2>
                 <i class="fa fa-4x fa-exchange color-danger"></i>
                 <p class="mt-2 no-mb lead small-caps">terabytes transferred</p>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-info card-body overflow-hidden text-center wow zoomInUp animation-delay-3">
-                <h2 class="counter">1293154</h2>
+                <h2 class="counter" id="num-users">12500</h2>
                 <i class="fa fa-4x fa-group color-info"></i>
                 <p class="mt-2 no-mb lead small-caps">users</p>
               </div>
@@ -193,7 +193,7 @@
             <div class="price-table price-table-info wow zoomInUp animation-delay-2">
               <header class="price-table-header">
                 <span class="price-table-category">Personal</span>
-                <h3><sup>$</sup>19.99 <sub>/mo.</sub></h3>
+                <h3><sup>$</sup>19.99 <sub>/mo.</sub>*</h3>
               </header>
               <div class="price-table-body">
                 <ul class="price-table-list">
@@ -213,7 +213,7 @@
             <div class="price-table price-table-success prominent wow zoomInDown animation-delay-2">
               <header class="price-table-header">
                 <span class="price-table-category">Professional</span>
-                <h3><sup>$</sup>49.99 <sub>/mo.</sub></h3>
+                <h3><sup>$</sup>49.99 <sub>/mo.</sub>*</h3>
               </header>
               <div class="price-table-body">
                 <ul class="price-table-list">
@@ -233,11 +233,11 @@
             <div class="price-table price-table-warning wow zoomInUp animation-delay-2">
               <header class="price-table-header">
                 <span class="price-table-category">Business</span>
-                <h3><sup>$</sup>99.99 <sub>/mo.</sub></h3>
+                <h3><sup>$</sup>99.99 <sub>/mo.</sub>*</h3>
               </header>
               <div class="price-table-body">
                 <ul class="price-table-list">
-                  <li><i class="zmdi zmdi-accounts-alt"></i> Up to 50 users</li>
+                  <li><i class="zmdi zmdi-accounts-alt"></i> Up to 50 users*</li>
                   <li><i class="zmdi zmdi-upload"></i> Unlimited file size limit.</li>
                   <li><i class="zmdi zmdi-file-plus"></i> Unlimited file transfers.</li>
                   <li><i class="zmdi zmdi-cloud-upload"></i> 10GB cloud storage.</li>
@@ -250,6 +250,7 @@
             </div>
           </div>
         </div>
+        <p>*Save 10% by paying one lump sum per year.</p>
       </div>
  <!-- container -->
       <section id="team" class="mt-6">
@@ -335,7 +336,7 @@
                 </div>
                 <div class="card-body pt-6 text-center">
                   <h3 class="color-warning">Cole Aschwanden</h3>
-                  <p>Business Analyst</p>
+                  <p>CEO</p>
                   <a href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook"><i class="zmdi zmdi-facebook"></i></a>
                   <a href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-twitter"><i class="zmdi zmdi-twitter"></i></a>
                   <a href="javascript:void(0)" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram"><i class="zmdi zmdi-instagram"></i></a>
@@ -379,6 +380,34 @@
     
     <script src="assets/js/plugins.min.js"></script>
     <script src="assets/js/app.min.js"></script>
-   
+   <script type="text/javascript">
+    $(document).ready( function(){
+
+      function incrementCount(theCounter) {
+        let countText =  $('#' + theCounter).text();
+        countText++;
+        $('#' + theCounter).text(countText);
+      };
+
+      (function loop() {
+          let rand = (Math.floor(Math.random() * 15) + 1) * 1000 ;
+          //console.log(rand);
+          setTimeout(function() {
+            incrementCount('files-served');
+            loop();  
+          }, rand);
+      }());
+
+      (function loop() {
+          let rand = (Math.floor(Math.random() * 30) + 1) * 1000 ;
+          //console.log(rand);
+          setTimeout(function() {
+            incrementCount('num-users');
+            loop();  
+          }, rand);
+      }());
+      
+    });
+   </script>
   </body>
 </html>
